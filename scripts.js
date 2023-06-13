@@ -1,5 +1,19 @@
 let counterPlayer = 0;
 let counterComputer = 0;
+/*
+function getPlayerChoice() {
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            let playerSelection = e.target.getAttribute('data-class');
+            return playerSelection;
+        })
+        
+    });
+    
+}*/
+
+
 
 function getComputerChoice(){
     let choiceRockPaperScissors = ["Rock", "Paper", "Scissors"];
@@ -49,15 +63,23 @@ function playRound(playerSelection, computerSelection){
 }
 
 function game(){
-    let playerSelection = prompt("Choose between rock, paper and scissors: ");
-    let computerSelection = getComputerChoice();
-    let i = 0;
-    console.log(playRound(playerSelection, computerSelection));
+    //let playerSelection = prompt("Choose between rock, paper and scissors: ");
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            let computerChoice = getComputerChoice();
+            let playerSelection = e.target.getAttribute('data-class');
+            playRound(playerSelection, computerChoice);
+    })
     
-
-
+});
+    
+    let i = 0;
+    //console.log(playRound(playerSelection, computerSelection));
+    
 }
 
+/*
 for (let index = 0; index < 5; index++) {
     game();
     
@@ -77,5 +99,8 @@ if (counterPlayer > counterComputer) {
     Player : ${counterPlayer}`);
     
 }
+*/
+
+
 
 
